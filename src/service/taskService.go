@@ -100,11 +100,6 @@ func (s taskService) UpdateTask(id string, task_res TaskResponse) (*TaskResponse
 		return nil, errors.New("Invalid status value")
 	}
 
-	if task_res.Status == "COMPLETED" {
-		log.Printf("Attempt to update task to COMPLETED: %v", task_res.Status)
-		return nil, errors.New("Cannot update task to COMPLETED status")
-	}
-
 	task := models.Task{
 		Title:       task_res.Title,
 		Description: task_res.Description,
